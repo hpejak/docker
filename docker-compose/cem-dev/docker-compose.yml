@@ -16,8 +16,8 @@ services:
       - "2181:2181"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
-#    volumes:
-#    - zookeeper_data:/opt/zookeeper-3.4.13/data
+    volumes:
+    - zookeeper_volume:/bitnami/zookeeper/data
 
   kafka01:
     image: 'bitnami/kafka:latest'
@@ -36,6 +36,6 @@ services:
 
 
 volumes:
-#  zookeeper_data:
+  zookeeper_volume:
   consul_data:
   consul_config:
