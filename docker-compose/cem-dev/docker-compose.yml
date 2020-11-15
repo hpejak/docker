@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  consul:
+    ports:
+    - '8500:8500'
+    image: consul:latest
+    volumes:
+    - consul_data:/consul/data
+    - consul_config:/consul/config
+
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+#    volumes:
+#    - zookeeper_data:/opt/zookeeper-3.4.13/data
+
+  kafka01:
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://:9092
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+#      KAFKA_ADVERTISED_PORT: 9092
+#      KAFKA_ADVERTISED_HOST_NAME: localhost
+    depends_on:
+      - "zookeeper"
+
+
+volumes:
+#  zookeeper_data:
+  consul_data:
+  consul_config:
