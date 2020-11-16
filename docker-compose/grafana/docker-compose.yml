@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+  grafanaDemo:
+    image: grafana/grafana:latest
+    ports:
+      - '3004:3000'
+    volumes:
+      - type: bind
+        source: c:/Users/hrvoje/dockerDisk/BULB-Table
+        target: /var/lib/grafana/plugins/BULB-Table
+      - type: bind
+        source: c:/Users/hrvoje/dockerDisk/new-plugin
+        target: /var/lib/grafana/plugins/new-plugin
+      - type: bind
+        source: c:/Users/hrvoje/dockerDisk/grafana/grafana.db
+        target: /var/lib/grafana/grafana.db
+
+  mysqlDemo:
+    image: mysql:latest
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
