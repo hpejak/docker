@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  drupal:
+    build: .
+    image: hpejak/drupal:1.0.0
+    ports:
+      - 8080:80
+    depends_on:
+      - postgres
+    volumes:
+      - drupal_modules:/var/www/html/modules
+      - drupal_profiles:/var/www/html/profiles
+      - drupal_themes:/var/www/html/themes
+      - drupal_sites:/var/www/html/sites
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=drupal
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
+  drupal_modules:
+  drupal_profiles:
+  drupal_themes:
+  drupal_sites:
