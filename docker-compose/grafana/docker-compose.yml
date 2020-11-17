@@ -2,7 +2,8 @@ version: '3.6'
 
 services:
   grafanaDemo:
-    image: grafana/grafana:latest
+    build: .
+    image: hpejak/grafana:2.0.0
     ports:
       - '3004:3000'
     volumes:
@@ -13,8 +14,16 @@ services:
         source: c:/Users/hrvoje/dockerDisk/new-plugin
         target: /var/lib/grafana/plugins/new-plugin
       - type: bind
+        source: c:/Users/hrvoje/dockerDisk/pre-eq-correlation-groups-map-anon
+        target: /var/lib/grafana/plugins/pre-eq-correlation-groups-map-anon
+      - type: bind
+        source: c:/Users/hrvoje/dockerDisk/hfc-zones
+        target: /var/lib/grafana/plugins/hfc-zones
+      - type: bind
         source: c:/Users/hrvoje/dockerDisk/grafana/grafana.db
         target: /var/lib/grafana/grafana.db
+    environment:
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=vertamedia-clickhouse-datasource
 
   mysqlDemo:
     image: mysql:latest
@@ -25,5 +34,14 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+  clickhouse:
+    image: yandex/clickhouse-server
+    ports:
+      - '8123:8123'
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+
 volumes:
   mysql_data:
+  clickhouse_data:
+
