@@ -5,15 +5,12 @@
 ##### Official installer script
 
 <sup>
-<sup>
 
 [Script Link](https://get.docker.com/)
 
 </sup>
-</sup>
 
 ##### Centos Personal Check
-<sup>
 <sup>
 
 sudo wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-cli-19.03.9-3.el7.x86_64.rpm  
@@ -28,12 +25,10 @@ sudo yum install docker-ce-19.03.9-3.el7.x86_64.rpm
 systemctl start docker
 
 </sup>
-</sup>
 
 ## Install docker-compose
 ##### Linux 
 
-<sup>
 <sup>
 
 curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -41,17 +36,13 @@ curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compo
 chmod +x /usr/local/bin/docker-compose
 
 </sup>
-</sup>
-
 
 ## Docker Image Export Import
 
-<sup>
 <sup>
 
 docker pull hello-world  
 docker save --output hello-world.tar {your image name or ID}  
 $docker load --input hello-world.tar  
 
-</sup>
 </sup>
