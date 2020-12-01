@@ -1,0 +1,11 @@
+version: '3'
+services:
+  clickhouse:
+    ports:
+      - "8123:8123"
+    image: yandex/clickhouse-server
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+
+volumes:
+    clickhouse_data:
