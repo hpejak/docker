@@ -46,3 +46,10 @@ docker save --output hello-world.tar {your image name or ID}
 $docker load --input hello-world.tar  
 
 </sup>
+
+## Start Docker on system startup
+<sup>
+
+sudo systemctl enable /usr/lib/systemd/system/docker.service
+
+</sup>

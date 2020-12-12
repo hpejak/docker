@@ -4,6 +4,7 @@ services:
     ports:
       - "8123:8123"
     image: yandex/clickhouse-server
+    restart: unless-stopped
     volumes:
       - clickhouse_data:/var/lib/clickhouse
 
