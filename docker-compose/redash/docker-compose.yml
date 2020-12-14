@@ -1,0 +1,73 @@
+version: '2'
+services:
+  server:
+    image: redash/redash:latest
+    command: server
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "5000:5000"
+    environment:
+      PYTHONUNBUFFERED: 0
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
+      REDASH_COOKIE_SECRET: veryverysecret
+      REDASH_WEB_WORKERS: 4
+      REDASH_MAIL_SERVER: "smtp2http"
+      REDASH_MAIL_DEFAULT_SENDER: "dalong@qq.com"
+  worker:
+    image: redash/redash:latest
+    command: scheduler
+    environment:
+      PYTHONUNBUFFERED: 0
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
+      QUEUES: "queries,scheduled_queries,celery"
+      WORKERS_COUNT: 2
+      REDASH_MAIL_SERVER: "smtp2http"
+      REDASH_MAIL_DEFAULT_SENDER: "dalong@qq.com"
+  redis:
+    image: redis:3.0-alpine
+  mongodb:
+    image: mongo:3.2
+    ports:
+      - "27017:27017"
+  benthos:
+    image: jeffail/benthos
+    volumes:
+      - "./conf/webhook.yaml:/benthos.yaml"
+    ports:
+      - "4195:4195"
+  smtp2http:
+    image: uflare/smtp2http
+    command: --listen=:25 --webhook=http://benthos:4195/ --strict=false
+  api:
+    build: ./
+    ports:
+      - "8080:80"
+  p:
+    image: prom/prometheus
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+  postgres:
+    image: postgres:9.5.6-alpine
+    ports:
+      - "5432:5432"
+  nginx:
+    image: redash/nginx:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+    links:
+      - server:redash
+      -
