@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+
 WORKDIR /usr/share
 RUN mkdir grafana
 WORKDIR grafana
