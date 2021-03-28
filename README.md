@@ -42,7 +42,9 @@ chmod +x /usr/local/bin/docker-compose
 <sup>
 
 - docker pull hello-world  
+
 - docker save --output hello-world.tar {your image name or ID}  
+
 - $docker load --input hello-world.tar  
 
 </sup>
