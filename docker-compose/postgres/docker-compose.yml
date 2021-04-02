@@ -10,7 +10,8 @@ services:
             PGDATA: /data/postgres
         volumes:
            - postgres:/data/postgres
-        ports: 5432:5432
+        ports:
+           - '5432:5432'
         network:
             - postgres_13
         restart: unless-stopped
