@@ -12,7 +12,7 @@ services:
             - postgres:/data/postgres
         ports:
             - "${POSTGRES_PORT:-5432}:5432"
-        network:
+        networks:
             - postgres_net
         restart: unless-stopped
 
@@ -20,7 +20,7 @@ services:
         container_name: pgadmin_5
         image: dpage/pgadmin4:5.1
         environment:
-            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:setme@pgadmin.com-}
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-setme@pgadmin.com}
             PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-password}
             PGADMIN_CONFIG_SERVER_MODE: 'False'
         volumes:
