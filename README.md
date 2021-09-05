@@ -47,13 +47,20 @@ systemctl start docker
 ##### Ubuntu Personal Check
 <sup>
  
-- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_20.10.5~3-0~ubuntu-bionic_amd64.deb
-- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/containerd.io_1.4.4-1_amd64.deb
-- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_20.10.5~3-0~ubuntu-bionic_amd64.deb
+- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_20.10.5~3-0~ubuntu-bionic_amd64.deb [OLD] [DEPRECATED]
+- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_20.10.8~3-0~ubuntu-bionic_amd64.deb
+- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/containerd.io_1.4.4-1_amd64.deb [OLD] [DEPRECATED]
+- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/containerd.io_1.4.9-1_amd64.deb
+- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_20.10.5~3-0~ubuntu-bionic_amd64.deb [OLD] [DEPRECATED]
+- sudo wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_20.10.8~3-0~ubuntu-bionic_amd64.deb
 
-- sudo dpkg -i docker-ce-cli_20.10.5~3-0~ubuntu-bionic_amd64.deb
-- sudo dpkg -i containerd.io_1.4.4-1_amd64.deb
-- sudo dpkg -i docker-ce_20.10.5~3-0~ubuntu-bionic_amd64.deb
+- sudo dpkg -i docker-ce-cli_20.10.5~3-0~ubuntu-bionic_amd64.deb [OLD] [DEPRECATED]
+- sudo dpkg -i containerd.io_1.4.4-1_amd64.deb [OLD] [DEPRECATED]
+- sudo dpkg -i docker-ce_20.10.5~3-0~ubuntu-bionic_amd64.deb [OLD] [DEPRECATED]
+ 
+- sudo dpkg -i docker-ce-cli_20.10.8~3-0~ubuntu-bionic_amd64.deb
+- sudo dpkg -i containerd.io_1.4.9-1_amd64.deb
+- sudo dpkg -i docker-ce_20.10.8~3-0~ubuntu-bionic_amd64.deb
 </sup>
  
 ## Install docker-compose
