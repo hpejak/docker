@@ -67,6 +67,7 @@ systemctl start docker
 <sup>
  
 sudo usermod -aG docker $USER
+ 
 newgrep docker
 </sup>
 
