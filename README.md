@@ -64,8 +64,11 @@ systemctl start docker
 </sup>
 
 ##### Manage Docker as a non-root
+<sup>
+ 
 sudo usermod -aG docker $USER
 newgrep docker
+</sup>
 
 ## Install docker-compose
 ##### Linux 
