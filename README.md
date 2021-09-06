@@ -12,7 +12,7 @@
 
 ##### Centos Personal Check
 <sup>
- 
+
 - sudo wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-scan-plugin-0.8.0-3.el7.x86_64.rpm
  
 - sudo wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-cli-19.03.9-3.el7.x86_64.rpm [OLD]
@@ -38,10 +38,8 @@
 - sudo yum install containerd.io-1.4.9-3.1.el7.x86_64.rpm
 - sudo yum install docker-ce-19.03.9-3.el7.x86_64.rpm
 - sudo yum install docker-ce-rootless-extras-20.10.8-3.el7.x86_64.rpm
-- sudo yum install docker-ce-20.10.8-3.el7.x86_64.rpm
-
-systemctl start docker
-
+- sudo yum install docker-ce-20.10.8-3.el7.x86_64.rpm <br/>
+- systemctl start docker
 </sup>
 
 ##### Ubuntu Personal Check
@@ -64,11 +62,10 @@ systemctl start docker
 </sup>
 
 ##### Manage Docker as a non-root
-<sup>
- 
-sudo usermod -aG docker $USER
- 
-newgrep docker
+
+<sup> 
+- sudo usermod -aG docker $USER <br/>
+- newgrep docker
 </sup>
 
 ## Install docker-compose
