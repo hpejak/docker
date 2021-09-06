@@ -62,7 +62,11 @@ systemctl start docker
 - sudo dpkg -i containerd.io_1.4.9-1_amd64.deb
 - sudo dpkg -i docker-ce_20.10.8~3-0~ubuntu-bionic_amd64.deb
 </sup>
- 
+
+##### Manage Docker as a non-root
+sudo usermod -aG docker $USER
+newgrep docker
+
 ## Install docker-compose
 ##### Linux 
 
