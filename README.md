@@ -65,7 +65,7 @@
 
 <sup> 
 - sudo usermod -aG docker $USER <br/>
-- newgrep docker
+- newgrp docker
 </sup>
 
 ## Install docker-compose
