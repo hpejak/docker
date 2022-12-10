@@ -68,6 +68,16 @@
 - newgrp docker
 </sup>
 
+###### Snap
+<sup> 
+- sudo addgroup --system docker <br/>
+- sudo adduser $USER docker <br/> 
+- newgrp docker <br/>
+- sudo snap disable docker <br/>
+- sudo snap enable docker <br/>
+
+</sup>
+
 ## Install docker-compose
 ##### Linux 
 
